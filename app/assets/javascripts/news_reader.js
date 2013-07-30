@@ -4,8 +4,9 @@ window.NR = {
   Views: {},
   Routers: {},
 
-  initialize: function($rootEl, feeds){
-    new NR.Router.FeedsRouter($rootEl, feeds);
+  initialize: function($rootEl, feedsData){
+    var feeds = new NR.Collections.Feeds(feedsData);
+    new NR.Routers.FeedsRouter($rootEl, feeds);
     Backbone.history.start();
   }
 };

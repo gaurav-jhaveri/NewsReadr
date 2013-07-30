@@ -13,7 +13,8 @@
 // Libraries from gems:
 //= require jquery
 //= require jquery_ujs
-//= require backbone-rails
+//= require underscore
+//= require backbone
 //
 // Your top-level namespace:
 //= require news_reader

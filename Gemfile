@@ -40,6 +40,7 @@ gem 'jquery-rails'
 
 gem 'ejs'
 
+gem 'backbone-on-rails'
 
 group :development do
   gem "better_errors"

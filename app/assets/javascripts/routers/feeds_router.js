@@ -5,15 +5,15 @@ NR.Routers.FeedsRouter = Backbone.Router.extend({
   },
 
   routes: {
-    "": "index"
+    "": "index",
     "feeds/:id": "show"
   },
 
   index: function() {
     var that = this;
-
     var feedsIndexView = new NR.Views.FeedsIndexView({
-      collection: that.feeds
+      collection: that.feeds,
+      $rootEl: that.$rootEl
     });
 
     that.$rootEl.html(feedsIndexView.render().$el);

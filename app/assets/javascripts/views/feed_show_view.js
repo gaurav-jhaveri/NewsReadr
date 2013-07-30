@@ -21,5 +21,5 @@ NR.Views.FeedShowView = Backbone.View.extend({
 
   showEntry: function (el) {
     //Display individual view for entry
-  };
+  }
 });

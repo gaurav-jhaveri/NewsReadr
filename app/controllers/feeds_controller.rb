@@ -1,8 +1,13 @@
 class FeedsController < ApplicationController
   def index
+    @feeds = Feed.all
+    t = Time.now
+    @feeds.each do |feed|
+      feed.reload if feed.updated_at - t > 120000
+    end
     respond_to do |format|
       format.html { render :index }
-      format.json { render :json => Feed.all }
+      format.json { render :json => @feeds }
     end
   end
 
@@ -14,4 +19,11 @@ class FeedsController < ApplicationController
       render :json => { error: "invalid url" }, status: :unprocessable_entity
     end
   end
+
+  def refresh_button
+    feed = Feed.find_by_url(params[:feed][:url])
+    feed.reload
+    render :json => feed
+  end
+
 end

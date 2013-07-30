@@ -4,4 +4,6 @@ NewReader::Application.routes.draw do
   end
 
   root to: "feeds#index"
+
+  get "/feeds/refresh", to: "feeds#refresh"
 end

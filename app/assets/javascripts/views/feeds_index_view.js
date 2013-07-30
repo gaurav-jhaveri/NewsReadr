@@ -1,15 +1,17 @@
 NR.Views.FeedsIndexView = Backbone.View.extend({
   events: {
     "click a.feed": "showFeed",
-    "click button.refresh": "refreshFeeds"
+    "click button.refresh": "refreshFeed"
   },
 
-  initialize: function($rootEl, feeds){
-    this.$rootEl = $rootEl;
-    this.feeds = feeds;
+  initialize: function(options){
+    this.$rootEl = options.$rootEl;
+    this.feeds = options.collection;
 
     var that = this;
     var events = ["add", "change", "remove", "reset"];
+
+    // console.log(feeds);
     _(events).each(function(event){
       that.listenTo(that.feeds, event, that.render);
     });
@@ -17,7 +19,6 @@ NR.Views.FeedsIndexView = Backbone.View.extend({
 
   render: function(){
     var that = this;
-
     var feedIndex = JST["feeds/index"]({
       feeds: that.feeds
     });
@@ -32,8 +33,9 @@ NR.Views.FeedsIndexView = Backbone.View.extend({
 
   //backboneRelational.autoFetch().... every two minutes
 
-  refreshFeeds: function(el){
-    this.feeds.fetch()
+  refreshFeed: function(el){
+    // $.ajax(
+    //   url: )
   }
 
 });

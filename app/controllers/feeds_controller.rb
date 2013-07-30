@@ -3,7 +3,7 @@ class FeedsController < ApplicationController
     @feeds = Feed.all
     t = Time.now
     @feeds.each do |feed|
-      if feed.updated_at > 2.seconds.ago
+      if feed.updated_at < 2.minutes.ago
         feed.reload
         feed.touch
       end

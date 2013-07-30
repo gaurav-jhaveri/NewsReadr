@@ -53,13 +53,13 @@ NR.Views.FeedsIndexView = Backbone.View.extend({
       });
       $(event.target).removeClass("showed");
     }
-    console.log(that.children);
   },
-  //backboneRelational.autoFetch().... every two minutes
 
   refreshFeed: function(event){
     event.preventDefault();
+    console.log(this.feeds.models[0].attributes.updated_at);
     this.feeds.fetch();
+    console.log(this.feeds.models[0].attributes.updated_at);
   }
 
 });

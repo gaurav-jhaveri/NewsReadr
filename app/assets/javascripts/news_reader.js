@@ -5,7 +5,7 @@ window.NR = {
   Routers: {},
 
   initialize: function($rootEl, feeds){
-    new NR.Routers.FeedsRouter($rootEl, feeds);
+    new NR.Router.FeedsRouter($rootEl, feeds);
     Backbone.history.start();
   }
 };

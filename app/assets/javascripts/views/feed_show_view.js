@@ -1,4 +1,4 @@
-NR.Views.FeedShowView = Backbone.Views.extend({
+NR.Views.FeedShowView = Backbone.View.extend({
   events: {
     "click a.entry": "showEntry"
   },

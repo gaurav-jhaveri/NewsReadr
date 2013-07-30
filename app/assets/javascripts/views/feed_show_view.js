@@ -1,16 +1,20 @@
 NR.Views.FeedShowView = Backbone.View.extend({
+
+  tagName: "ul",
+
+  className: "entries",
+
   events: {
     "click a.entry": "showEntry"
   },
 
-  initialize: function($rootEl, entries){
-    this.$rootEl = $rootEl;
-    this.entries = entries;
+  initialize: function(options){
+    this.$rootEl = options.$rootEl;
+    this.entries = options.entries;
   },
 
   render: function(){
     var that = this;
-
     var feedShow = JST["feeds/show"]({
       entries: that.entries
     });

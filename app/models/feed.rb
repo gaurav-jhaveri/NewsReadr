@@ -39,4 +39,8 @@ class Feed < ActiveRecord::Base
       return false
     end
   end
+
+  def as_json(options = {})
+    super(options.merge(:include => [ :entries ]))
+  end
 end

@@ -19,8 +19,11 @@ NR.Routers.FeedsRouter = Backbone.Router.extend({
     that.$rootEl.html(feedsIndexView.render().$el);
   },
 
-  show: function(id) {
-    //To be filled
+  show: function(event) {
+    var that = this;
+    var feedShowView = new NR.Views.FeedShowView({
+      $rootEl: that.$rootEl
+    })
   }
 
 })

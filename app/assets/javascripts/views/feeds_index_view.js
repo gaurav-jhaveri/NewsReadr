@@ -4,6 +4,8 @@ NR.Views.FeedsIndexView = Backbone.View.extend({
     "click button.refresh": "refreshFeed"
   },
 
+  className: "hidden",
+
   initialize: function(options){
     this.$rootEl = options.$rootEl;
     this.feeds = options.collection;
@@ -40,7 +42,9 @@ NR.Views.FeedsIndexView = Backbone.View.extend({
       that.children.push(feedShowView);
       $(event.target).addClass("showed");
       $(event.target).attr("view-id", feedShowView.cid)
-      $(event.target).after(feedShowView.render().$el);
+      var link = feedShowView.render().$el
+      $(event.target).after(link);
+      link.slideDown();
     }
     else{
       var viewId = $(event.target).attr("view-id")
@@ -57,9 +61,7 @@ NR.Views.FeedsIndexView = Backbone.View.extend({
 
   refreshFeed: function(event){
     event.preventDefault();
-    console.log(this.feeds.models[0].attributes.updated_at);
     this.feeds.fetch();
-    console.log(this.feeds.models[0].attributes.updated_at);
   }
 
 });

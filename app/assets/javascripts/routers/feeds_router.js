@@ -15,8 +15,9 @@ NR.Routers.FeedsRouter = Backbone.Router.extend({
       collection: that.feeds,
       $rootEl: that.$rootEl
     });
-
-    that.$rootEl.html(feedsIndexView.render().$el);
+    var list = feedsIndexView.render().$el
+    that.$rootEl.html(list);
+    list.fadeIn("slow");
   },
 
   show: function(event) {

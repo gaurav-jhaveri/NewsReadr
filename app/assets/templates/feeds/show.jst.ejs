@@ -1,3 +1,4 @@
 <% _(entries).each(function (entry) { %>
-  <li><a href="<%= entry.link %>" class="entry"><%= entry.title %></a></li>
+  <li><a href="<%= entry.link %>" class="entry" data-id="<%= entry.guid %>">
+    <%= entry.title %></a></li>
 <% }); %>
